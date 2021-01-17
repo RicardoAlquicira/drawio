@@ -378,7 +378,7 @@
 	/**
 	 * Allows for two buttons in the sidebar footer.
 	 */
-	EditorUi.prototype.sidebarFooterHeight = 38;
+	EditorUi.prototype.sidebarFooterHeight = 68;
 
 	/**
 	 * Specifies the default custom shape style.
@@ -3617,6 +3617,10 @@
 		var div =  this.createDiv('geSidebarContainer geSidebarFooter');
 		div.style.position = 'absolute';
 		div.style.overflow = 'hidden';
+		
+		var otherButton = document.createElement("button");
+		otherButton.innerHTML="hola";
+		div.appendChild(otherButton);
 		
 		var elt2 = document.createElement('a');
 		elt2.className = 'geTitle';
@@ -9663,6 +9667,7 @@
 			// Fixes cross-platform clipboard UTF8 issues by encoding as URI
 			var cells = mxUtils.sortCells(graph.model.getTopmostCells(graph.getSelectionCells()));
 			var xml = mxUtils.getXml(graph.encodeCells(cells));
+			console.log(xml);
 			mxUtils.setTextContent(elt, encodeURIComponent(xml));
 			
 			if (removeCells)
